@@ -266,7 +266,7 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
     }
 
     // When in Layer 1 show the UX
-    if ((current_layer == 1) || (current_layer == 3)) {
+    if ((current_layer == 1) || (current_layer == 3) || (current_layer == 5)) {
         // Set all mapped keys to orange
         uint8_t layer = get_highest_layer(layer_state);
         for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
@@ -281,6 +281,26 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
                     }
                 }
             }
+        }
+
+        switch (current_layer) {
+            case 1:
+                rgb_matrix_set_color(PROFILE_INDICATOR, RGB_ADJ_BLUE);
+
+                rgb_matrix_set_color(H_INDEX, RGB_ADJ_WHITE);
+                rgb_matrix_set_color(J_INDEX, RGB_ADJ_WHITE);
+                rgb_matrix_set_color(K_INDEX, RGB_ADJ_WHITE);
+                rgb_matrix_set_color(L_INDEX, RGB_ADJ_WHITE);
+                break;
+            case 3:
+                rgb_matrix_set_color(PROFILE_INDICATOR, RGB_ADJ_GREEN);
+                break;
+            case 5:
+                rgb_matrix_set_color(PROFILE_INDICATOR, RGB_ADJ_WHITE);
+                break;
+            default:
+                rgb_matrix_set_color(PROFILE_INDICATOR, RGB_OFF);
+                break;
         }
 
         if (gpio_read_pin(BT_CABLE_PIN) && !gpio_read_pin(BT_CHARGE_PIN)) {
