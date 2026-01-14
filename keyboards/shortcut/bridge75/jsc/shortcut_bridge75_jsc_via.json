@@ -4,11 +4,11 @@
     "productId": "0x003E",
     "matrix": {"rows": 6, "cols": 15},
     "customKeycodes": [
-      { "name": "BT_USB",   "title": "USB",   "shortName": "BT_USB" },
-      { "name": "BT_HOST1", "title": "BT 1",  "shortName": "BT_BT1" },
-      { "name": "BT_HOST2", "title": "BT 2",  "shortName": "BT_BT2" },
-      { "name": "BT_HOST3", "title": "BT 3",  "shortName": "BT_BT3" },
-      { "name": "BT_2_4G",  "title": "2.4G",  "shortName": "BT_2G4" }
+      { "name": "BT_HOST1", "title": "Bluetooth 1",  "shortName": "BT_BT1" },
+      { "name": "BT_HOST2", "title": "Bluetooth 2",  "shortName": "BT_BT2" },
+      { "name": "BT_HOST3", "title": "Bluetooth 3",  "shortName": "BT_BT3" },
+      { "name": "BT_2_4G",  "title": "2.4G Dongle",  "shortName": "BT_2G4" },
+      { "name": "BT_USB",   "title": "Wired",   "shortName": "BT_USB" }
     ],
     "layouts": {
         "keymap":

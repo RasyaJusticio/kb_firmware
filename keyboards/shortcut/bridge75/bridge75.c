@@ -23,6 +23,12 @@ uint8_t blink_index  = 0;
 bool    blink_fast   = true;
 bool    blink_slow   = true;
 
+static uint8_t  last_bt; // 0: USB, 1: BT1, 2: BT2, 3: BT3, 4: 2.4G
+static uint16_t bt1_timer;
+static uint16_t bt2_timer;
+static uint16_t bt3_timer;
+static uint16_t bt24_timer;
+
 // Expose md_send_devinfo to support the Bridge75 Bluetooth naming quirk
 // See the readme.md for more information about the quirk.
 void md_send_devinfo(const char *name);
@@ -159,37 +165,58 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
         }
         case BT_USB: {
             wireless_devs_change(wireless_get_current_devs(), DEVS_USB, false);
+            last_bt = 0;
             return false;
         }
-        case LT(0, BT_HOST1): {
-            if (record->tap.count && record->event.pressed) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT1, false);
-            } else if (record->event.pressed && *md_getp_state() != MD_STATE_PAIRING) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT1, true);
+        case BT_HOST1: {
+            if (record->event.pressed) {
+                bt1_timer = timer_read();
+            } else {
+                if (timer_elapsed(bt1_timer) < TAPPING_TERM) {
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT1, false);
+                } else if (last_bt != 1 && *md_getp_state() != MD_STATE_PAIRING) {
+                    last_bt = 1;
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT1, true);
+                }
             }
             return false;
         }
-        case LT(0, BT_HOST2): {
-            if (record->tap.count && record->event.pressed) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT2, false);
-            } else if (record->event.pressed && *md_getp_state() != MD_STATE_PAIRING) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT2, true);
+        case BT_HOST2: {
+            if (record->event.pressed) {
+                bt2_timer = timer_read();
+            } else {
+                if (timer_elapsed(bt2_timer) < TAPPING_TERM) {
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT2, false);
+                } else if (last_bt != 2 && *md_getp_state() != MD_STATE_PAIRING) {
+                    last_bt = 2;
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT2, true);
+                }
             }
             return false;
         }
-        case LT(0, BT_HOST3): {
-            if (record->tap.count && record->event.pressed) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT3, false);
-            } else if (record->event.pressed && *md_getp_state() != MD_STATE_PAIRING) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_BT3, true);
+        case BT_HOST3: {
+            if (record->event.pressed) {
+                bt3_timer = timer_read();
+            } else {
+                if (timer_elapsed(bt3_timer) < TAPPING_TERM) {
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT3, false);
+                } else if (last_bt != 3 && *md_getp_state() != MD_STATE_PAIRING) {
+                    last_bt = 3;
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_BT3, true);
+                }
             }
             return false;
         }
-        case LT(0, BT_2_4G): {
-            if (record->tap.count && record->event.pressed) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_2G4, false);
-            } else if (record->event.pressed && *md_getp_state() != MD_STATE_PAIRING) {
-                wireless_devs_change(wireless_get_current_devs(), DEVS_2G4, true);
+        case BT_2_4G: {
+            if (record->event.pressed) {
+                bt24_timer = timer_read();
+            } else {
+                if (timer_elapsed(bt24_timer) < TAPPING_TERM) {
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_2G4, false);
+                } else if (last_bt != 4 && *md_getp_state() != MD_STATE_PAIRING) {
+                    last_bt = 4;
+                    wireless_devs_change(wireless_get_current_devs(), DEVS_2G4, true);
+                }
             }
             return false;
         }
