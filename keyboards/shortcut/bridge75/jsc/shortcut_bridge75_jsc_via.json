@@ -2,73 +2,13 @@
     "name": "JscBoard",
     "vendorId": "0xFFFE",
     "productId": "0x003E",
-    "keycodes": ["qmk_lighting"],
-    "menus": [
-      {
-        "label": "Lighting",
-        "content": [
-          {
-            "label": "Backlight",
-            "content": [
-              {
-                "label": "Brightness",
-                "type": "range",
-                "options": [0, 255],
-                "content": ["id_qmk_rgb_matrix_brightness", 3, 1]
-              },
-              {
-                "label": "Effect",
-                "type": "dropdown",
-                "content": ["id_qmk_rgb_matrix_effect", 3, 2],
-                "options": [
-                    ["All Off", 0],
-                    ["SOLID_COLOR", 1],
-                    ["BREATHING", 2],
-                    ["CYCLE_ALL", 3],
-                    ["CYCLE_LEFT_RIGHT", 4],
-                    ["CYCLE_UP_DOWN", 5],
-                    ["RAINBOW_MOVING_CHEVRON", 6],
-                    ["CYCLE_OUT_IN", 7],
-                    ["CYCLE_OUT_IN_DUAL", 8],
-                    ["CYCLE_PINWHEEL", 9],
-                    ["CYCKE_SPIRAL", 10],
-                    ["DUAL_BEACON", 11],
-                    ["RAINBOW_BEACON", 12],
-                    ["RAINDROPS", 13],
-                    ["TYPING_HEATMAP", 14],
-                    ["SOLID_REACTIVE_SIMPLE", 15],
-                    ["SOLID_REACTIVE", 16],
-                    ["SOLID_REACTIVE_NEXUS", 17],
-                    ["MATRIX_MULTISPLASH", 18]
-                  ]
-              },
-              {
-                "showIf": "{id_qmk_rgb_matrix_effect} != 0",
-                "label": "Effect Speed",
-                "type": "range",
-                "options": [0, 255],
-                "content": ["id_qmk_rgb_matrix_effect_speed", 3, 3]
-              },
-              {
-                "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 24 && {id_qmk_rgb_matrix_effect} != 28 && {id_qmk_rgb_matrix_effect} != 29 && {id_qmk_rgb_matrix_effect} != 32",
-                "label": "Color",
-                "type": "color",
-                "content": ["id_qmk_rgb_matrix_color", 3, 4]
-              }
-            ]
-          }
-        ]
-      }
-    ],
     "matrix": {"rows": 6, "cols": 15},
     "customKeycodes": [
-      {"name": "KC_USB","title": "USB","shortName": "KC_USB"},
-      {"name": "KC_BT1","title": "BT 1","shortName": "KC_BT1"},
-      {"name": "KC_BT2","title": "BT 2","shortName": "KC_BT2"},
-      {"name": "KC_BT3","title": "BT 3","shortName": "KC_BT3"},
-      {"name": "KC_BT4","title": "BT 4","shortName": "KC_BT4"},
-      {"name": "KC_BT5","title": "BT 5","shortName": "KC_BT5"},
-      {"name": "KC_2G4","title": "2.4G","shortName": "KC_2G4"}
+      { "name": "BT_USB",   "title": "USB",   "shortName": "BT_USB" },
+      { "name": "BT_HOST1", "title": "BT 1",  "shortName": "BT_BT1" },
+      { "name": "BT_HOST2", "title": "BT 2",  "shortName": "BT_BT2" },
+      { "name": "BT_HOST3", "title": "BT 3",  "shortName": "BT_BT3" },
+      { "name": "BT_2_4G",  "title": "2.4G",  "shortName": "BT_2G4" }
     ],
     "layouts": {
         "keymap":
