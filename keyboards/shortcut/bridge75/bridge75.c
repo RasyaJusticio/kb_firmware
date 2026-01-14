@@ -270,21 +270,24 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
 
     // When in Layer 1 show the UX
     if ((current_layer == 1) || (current_layer == 3)) {
-        // Set all mapped keys to orange
-        uint8_t layer = get_highest_layer(layer_state);
-        for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                uint8_t index = g_led_config.matrix_co[row][col];
 
-                if (index >= led_min && index < led_max && index != NO_LED && keymap_key_to_keycode(layer, (keypos_t){col, row}) > KC_TRNS) {
-                    if (current_layer == 3) {
-                        rgb_matrix_set_color(index, RGB_ADJ_BLUE);
-                    } else {
-                        rgb_matrix_set_color(index, RGB_ADJ_ORANGE);
+        // Set all mapped keys to orange/blue on FN layers
+        #ifndef DISABLE_FN_LIGHTS
+            uint8_t layer = get_highest_layer(layer_state);
+            for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+                for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                    uint8_t index = g_led_config.matrix_co[row][col];
+
+                    if (index >= led_min && index < led_max && index != NO_LED && keymap_key_to_keycode(layer, (keypos_t){col, row}) > KC_TRNS) {
+                        if (current_layer == 3) {
+                            rgb_matrix_set_color(index, RGB_ADJ_BLUE);
+                        } else {
+                            rgb_matrix_set_color(index, RGB_ADJ_ORANGE);
+                        }
                     }
                 }
             }
-        }
+        #endif
 
         if (gpio_read_pin(BT_CABLE_PIN) && !gpio_read_pin(BT_CHARGE_PIN)) {
             // Check if we are plugged in and charging
