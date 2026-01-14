@@ -1,0 +1,6 @@
+{
+    "userspace_version": "1.1",
+    "build_targets": [
+        ["shortcut/bridge75/jsc", "default"]
+    ]
+}
