@@ -288,6 +288,21 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
                 }
             }
         #endif
+        
+        // Show colored light indicating the current profile
+        #ifdef PROFILE_INDICATOR
+            switch (current_layer) {
+                case 1:
+                    rgb_matrix_set_color(PROFILE_INDICATOR, RGB_ADJ_PURPLE);
+                    break;
+                case 3:
+                    rgb_matrix_set_color(PROFILE_INDICATOR, RGB_ADJ_RED);
+                    break;
+                default:
+                    rgb_matrix_set_color(PROFILE_INDICATOR, RGB_OFF);
+                    break;
+            }
+        #endif
 
         if (gpio_read_pin(BT_CABLE_PIN) && !gpio_read_pin(BT_CHARGE_PIN)) {
             // Check if we are plugged in and charging

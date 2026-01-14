@@ -15,12 +15,20 @@
             "val": 0
         },
         "layout": [
-            { "flags": 1,"x":  12, "y": 38}, // Caps Lock
-            { "flags": 1,"x":   7, "y": 0 }, // ESC
-            { "flags": 1,"x":  21, "y": 13}, // 1
-            { "flags": 1,"x":  35, "y": 13}, // 2
-            { "flags": 1,"x":  49, "y": 13}, // 3
-            { "flags": 1,"x":  63, "y": 13} // 4
+            { "flags": 1, "matrix": [0, 0],  "x":   7, "y": 0 },
+            { "flags": 1, "matrix": [0, 1],  "x":  28, "y": 0 },
+            { "flags": 1, "matrix": [0, 2],  "x":  42, "y": 0 },
+            { "flags": 1, "matrix": [0, 3],  "x":  56, "y": 0 },
+            { "flags": 1, "matrix": [0, 4],  "x":  70, "y": 0 },
+            { "flags": 1, "matrix": [0, 5],  "x":  91, "y": 0 },
+            { "flags": 1, "matrix": [0, 6],  "x": 105, "y": 0 },
+            { "flags": 1, "matrix": [0, 7],  "x": 119, "y": 0 },
+            { "flags": 1, "matrix": [0, 8],  "x": 133, "y": 0 },
+            { "flags": 1, "matrix": [0, 9],  "x": 154, "y": 0 },
+            { "flags": 1, "matrix": [0, 10], "x": 168, "y": 0 },
+            { "flags": 1, "matrix": [0, 11], "x": 182, "y": 0 },
+            { "flags": 1, "matrix": [0, 12], "x": 196, "y": 0 },
+            { "flags": 1, "matrix": [0, 14], "x": 217, "y": 0 }
         ]
     },
     "layouts": {

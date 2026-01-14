@@ -11,6 +11,7 @@
 #define DEVS_BT3_INDEX  4
 #define DEVS_2G4_INDEX  5
 #define DISABLE_FN_LIGHTS
+#define PROFILE_INDICATOR 13
 
 /* Tune down RGB for stability */
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
