@@ -34,7 +34,7 @@ jobs:
 
     - name: Set output
       id: vars
-      run: echo "tag=${GITHUB_REF#refs/*/em-}" >> $GITHUB_OUTPUT
+      run: echo "tag=${GITHUB_REF#refs/*/ry-}" >> $GITHUB_OUTPUT
 
     - name: Build
       if: always()
