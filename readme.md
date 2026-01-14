@@ -1,4 +1,19 @@
-# Quantum Mechanical Keyboard Wireless Fork
+# RasyaJusticio's Personalized Mechanical Keyboard Firmware
+
+This repository is a fork of [emolitor](https://github.com/emolitor/qmk_firmware)'s fork of the Quantum Mechanical Keyboard Firmware.
+Personalized for me on the [Shortcut Studios Bridge75](keyboards/shortcut/bridge75/) board. It has additional features like
+profiles switcher with a profile light indicator and some other miscellaneous things.
+
+<br/>
+<br/>
+
+----
+
+<br/>
+<br/>
+
+## Quantum Mechanical Keyboard Wireless Fork
+
 This is a fork of the Quantum Mechanical Keyboard Firmware adding support
 for Westberry based wireless keyboards. These keyboards are based on a
 multichip solution coupling a WB32 MCU with a CH582F chip providing the
@@ -11,6 +26,7 @@ which can be upstreamed. This fork does not and will not contain any binary
 blobs and is fully compliant with the upstream license used by QMK.
 
 The following keyboards are currently supported by this repository.
+
 * [Neo Studios Neo65](keyboards/neo/neo65_trimode/)
 * [Neo Studios Neo70](keyboards/neo/neo70_trimode/)
 * [Neo Studios Neo80](keyboards/neo/neo80_trimode/)
@@ -18,7 +34,7 @@ The following keyboards are currently supported by this repository.
 * [QwertyKeys QK65V2 Classic](keyboards/qwertykeys/qk65v2classic/)
 * [Shortcut Studios Bridge75](keyboards/shortcut/bridge75/)
 
-This is a community supported repository with special thanks to Kasper at 
+This is a community supported repository with special thanks to Kasper at
 [Monacokeys](https://monacokeys.de) who provided some spare boards and endless
 time testing the initial port of the Bridge75. And to
 [Shortcut Studio](https://shortcutofficial.com) for publishing the inital
@@ -26,11 +42,12 @@ source code for the Bridge75 and providing an ANSI Bridge75 PCB for
 development as well testing and validating the initial Bridge75 port. And to
 [Neo Studio](https://www.instagram.com/ne0_kb) for providing PCBs of their
 boards as well as testing and validing the Neo keyboards.
-[QwertyKeys](https://qwertykeys.com) for providing PCBs and validating and 
+[QwertyKeys](https://qwertykeys.com) for providing PCBs and validating and
 testing the QK65V2 Classic
 
+----
 
-# Quantum Mechanical Keyboard Firmware
+## Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/qmk)
